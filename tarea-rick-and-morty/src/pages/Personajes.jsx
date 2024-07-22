@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 
 export const Personajes = () =>{
-    const [personajes, setPersonajes] = useState(null);
+    const [personajes, setPersonajes] = useState([]);
     const [info, setInfo] = useState({
         count: 0,
         next: null,
@@ -10,13 +10,15 @@ export const Personajes = () =>{
     })
 
     useEffect(()=>{
+        getPersonajes('https://rickandmortyapi.com/api/character'); // utilizando async/await
         console.log("cargando datos")
     }, []); //al estar el array vacío unicamente se ejecuta en componentDidMount
 
 
-    const getPersonajes = async () => {
-        const respuesta = await fetch('https://rickandmortyapi.com/api/character')
-        console.log("[Personajes.jsx] Respuesta vale:", respuesta);
+    const getPersonajes = async (url) => {
+        // const url = 'https://rickandmortyapi.com/api/character';
+        const respuesta = await fetch (url);
+        // console.log("[Personajes.jsx] Respuesta vale:", respuesta);
 
         const objeto = await respuesta.json();
         console.log("[Personajes.jsx] Objeto vale:", objeto);
@@ -27,19 +29,38 @@ export const Personajes = () =>{
 
     return(
         <section>
-            <h3>Personajes</h3>
-            Cantidad de elementos: {info.count}
-            {
-                personajes.map(({id, name}) => {
-                    return(
-                        <div key={id}>
-                        nombre: {name}
-                        </div>
-                    )
-                })
-            }
+            <h3>Personajes ({info.count}) </h3>
+
+            <div className='flexBetween'>
+                <button disabled={!info.prev} onClick={()=>{ getPersonajes(info.prev) }}>Anterior</button>
+                <div className='flexCenter'>
+                    {info.count}
+                </div>
+                <button disabled={!info.next} onClick={()=>{ getPersonajes(info.next) }}>Siguiente</button>
+            </div>
+
+            <div className='flexGrid'>
+            
+        {
+            personajes.map((personaje) =>(
+                <PersonajeCard key={personaje.id} {...personaje} />
+            ))
+        }
+            </div>
+
+            
         </section>
+        
     );
+}
+
+const PersonajeCard = ({name, image, id, status, species, location}) =>{
+    return(
+        <article className='Card'>
+            Nombre: {name}
+            <img src={image} alt={name} />
+        </article>
+    )
 }
 
 

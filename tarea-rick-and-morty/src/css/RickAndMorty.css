@@ -1,12 +1,37 @@
 .Contenedor{
-    
+    width: 100%;
+    background-color: aliceblue;
 }
 .Header{
-    
+    color: black;
 }
 .Titulo{
-    
+    color: black;
 }
 .Contenido{
-    
+    color: black;
+}
+
+/* .flexBetween{
+    display: flex;
+    justify-content: space-between;
+}
+.flexCenter{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    justify-content: center;
+}
+.flexGrid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.Card{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
