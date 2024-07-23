@@ -13,3 +13,69 @@ En esta actividad, vamos a explorar la API de Rick and Morty, para crear una apl
 8. Muestra la cantidad total de elementos en cada sección (Personajes, Lugares y Episodios) y la página actual en relación con el número total de páginas disponibles.
 9. Agrega estilos CSS para mejorar la apariencia de tu aplicación. Utiliza CSS para darle un aspecto atractivo y profesional a tu aplicación.
 10. Demuestra tu conocimiento de Diseño Web para que tu sitio sea responsive (mobile + escritorio).
+
+
+## React Router v6
+
+https://reactrouter.com/en/main
+
+Para descargarnos e instalar los paquetes gay que poner en terminal: npm i react-router-dom (siempre dentro de la carpeta del protecto)
+
+Después importamos en el componente App:
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+
+Agrupamos el contenido de nuestro return dentro de Router:
+
+```js
+
+return(
+
+  <>
+  <Router>
+  <div className='Contenedor'>
+    <header className='Header'>
+      <h1 className='Titulo'>Rick And Morty</h1>
+    <nav>
+    <ul>
+      <li><button onClick={()=> {setSection("personajes")}}></button>Personajes</li>
+      <li><button onClick={()=> {setSection("lugares")}}></button>Lugares</li>
+      <li><button onClick={()=> {setSection("episodios")}}></button>Episodios</li>
+    </ul>
+   </nav>
+
+  </header>
+
+  <main className='Contenido'>
+  {(section == "personajes") && <Personajes/>}
+  {(section == "lugares") && <Lugares/>}
+  {(section == "episodios") &&   <Episodios/>}
+  </main>
+
+
+  </div>
+  </Router>
+  </>
+)
+
+  ```
+
+Después podríamos comentar el useState ya que lo estamos haciendo solo con React Router ( a no ser que lo necesitemos para otra cosa )
+
+### ¿Cual es la ventaja de instalar un Router?
+Rutea distintas URLS (las escribe automáticamente y las lee), te pone automáticamente en la URL en qué componente estás en ese momento.
+Tambien te dejaría ir atrás y alante, ya que guarda el historial
+
+En resumen, hacemos nuestra página navegable, para que podamos ir de página a página dentro del propio documento.
+
+
+### GENERADOR DE EMAIL Y CONTRASEÑA PARA REGISTRARTE EN PLATAFORMAS
+Para crear un email y contraseña ficticios para no tener que registrarte en diferentes plataformas con tu propio email.
+
+### Repositorio del profe de RickAndMorty:
+
+https://github.com/TomasCEI/rick-and-morty/
+
+
+
+
+
