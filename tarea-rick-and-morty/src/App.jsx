@@ -15,7 +15,7 @@ return(
 
   <>
   <Router>
-  <div className='Contenedor'>
+  <main className='Contenedor'>
     <header className='Header'>
       <Link to="/">
       <h1 className='Titulo'>Rick And Morty</h1>
@@ -73,7 +73,7 @@ return(
     </div>
 
 
-  </div>
+  </main>
   </Router>
   </>
 )

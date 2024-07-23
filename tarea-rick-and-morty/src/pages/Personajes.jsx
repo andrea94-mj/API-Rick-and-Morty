@@ -24,21 +24,10 @@ export const Personajes = () =>{
         console.log("[Personajes.jsx] Objeto vale:", objeto);
 
 
-        //incorporamos un forEach:
-
-        if(objeto.error){
-            setErrorData ("No se han encontrado resultados");
-            setPersonajes ([]);
-            setInfo ([]);
-            return;
-        }else{
-            setErrorData("");
-            setPersonajes(objeto.results);
-            setInfo(objeto.info);
-        }
         
+        setPersonajes(objeto.results);
+        setInfo(objeto.info);
     }
-    
 
     return(
         <section>
@@ -67,11 +56,17 @@ export const Personajes = () =>{
     );
 }
 
-const PersonajeCard = ({name, image, id, status, species, location}) =>{
+const PersonajeCard = ({name, image, status, species, location}) =>{
+
+    const color = (status == "Alive" ) ? "#ff0000" : (status == "Dead") ? "#008000" : "#b300ff";
+
     return(
         <article className='Card'>
-            Nombre: {name}
+            <h2>Nombre: {name}</h2>
             <img src={image} alt={name} />
+            <h3>Especie: {species}</h3>
+            <h3>{status == "Alive" && "Vivito"} {status == "Dead" && "Mueto"} {status == "unknown" && "¿Ande está?"}</h3>
+            <h3>¿Donde vive?:{location} </h3>
         </article>
     )
 }
