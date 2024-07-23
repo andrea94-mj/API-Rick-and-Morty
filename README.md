@@ -19,7 +19,7 @@ En esta actividad, vamos a explorar la API de Rick and Morty, para crear una apl
 
 https://reactrouter.com/en/main
 
-Para descargarnos e instalar los paquetes gay que poner en terminal: npm i react-router-dom (siempre dentro de la carpeta del protecto)
+Para descargarnos e instalar los paquetes hay que poner en terminal: npm i react-router-dom (siempre dentro de la carpeta del proyecto)
 
 Después importamos en el componente App:
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';

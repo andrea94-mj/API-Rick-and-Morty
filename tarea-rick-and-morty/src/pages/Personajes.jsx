@@ -58,7 +58,7 @@ export const Personajes = () =>{
 
 const PersonajeCard = ({name, image, status, species, location}) =>{
 
-    const color = (status == "Alive" ) ? "#ff0000" : (status == "Dead") ? "#008000" : "#b300ff";
+    // const color = (status == "Alive" ) ? "#ff0000" : (status == "Dead") ? "#008000" : "#b300ff";
 
     return(
         <article className='Card'>
