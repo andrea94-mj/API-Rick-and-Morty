@@ -23,9 +23,22 @@ export const Personajes = () =>{
         const objeto = await respuesta.json();
         console.log("[Personajes.jsx] Objeto vale:", objeto);
 
-        setPersonajes(objeto.results);
-        setInfo(objeto.info);
+
+        //incorporamos un forEach:
+
+        if(objeto.error){
+            setErrorData ("No se han encontrado resultados");
+            setPersonajes ([]);
+            setInfo ([]);
+            return;
+        }else{
+            setErrorData("");
+            setPersonajes(objeto.results);
+            setInfo(objeto.info);
+        }
+        
     }
+    
 
     return(
         <section>
