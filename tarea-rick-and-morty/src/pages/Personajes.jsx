@@ -45,7 +45,7 @@ export const Personajes = () =>{
             
         {
             personajes.map((personaje) =>(
-                <PersonajeCard key={personaje.id} {...personaje} />
+                <PersonajeCard className key={personaje.id} {...personaje} />
             ))
         }
             </div>
