@@ -66,7 +66,7 @@ const PersonajeCard = ({name, image, status, species, location}) =>{
             <img src={image} alt={name} />
             <h3>Especie: {species}</h3>
             <h3>{status == "Alive" && "Vivito"} {status == "Dead" && "Mueto"} {status == "unknown" && "¿Ande está?"}</h3>
-            <h3>¿Donde vive?:{location} </h3>
+            {/* <h3>¿Donde vive?:{location} </h3> */}
         </article>
     )
 }
